@@ -316,10 +316,8 @@ the children's names in the filtered array
 const extractChildren = (arr) => {
   // Solution code here...
   return arr
-    .filter(({ name, children }) => children && name?.includes("a"))
+    .filter(({ name, children }) => children && name.includes("a"))
     .reduce((acc, { children: childrenNames }, i) => {
-      console.log(acc, childrenNames);
-      console.log(i);
       return [acc, childrenNames].flat();
     }, []);
 };
