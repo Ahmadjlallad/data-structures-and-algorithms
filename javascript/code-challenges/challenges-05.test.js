@@ -198,7 +198,7 @@ const characters = [
 const countNumberOfChildren = (arr) => {
   // Solution code here...
   return arr.reduce((acc, { children }) => {
-    return children?.length ? children.length + acc : acc;
+    return children ? children.length + acc : acc;
   }, 0);
 };
 
