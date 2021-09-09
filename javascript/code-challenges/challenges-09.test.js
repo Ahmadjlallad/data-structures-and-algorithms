@@ -264,7 +264,6 @@ const houseSurvivors = (arr) => {
     else helperArr.push(children.length);
     if (!spouse || deceasedSpouses.includes(spouse)) helperArr.push(0);
     else helperArr.push(1);
-    console.log(deceasedSpouses.includes(spouse));
     survivors.push({ house, members: 1 + helperArr.reduce((a, b) => a + b) });
   });
   return survivors;
