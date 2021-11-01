@@ -21,3 +21,4 @@ To run your tests
 ### 401 Data Structures, Code Challenges
 
 - [Reverse an array.](./javascript/arrayReverse/README.md)
+- [Insert and shift an array in middle at index.](./javascript/arrayInsertShift/README.md)
