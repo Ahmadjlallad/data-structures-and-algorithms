@@ -22,3 +22,4 @@ To run your tests
 
 - [Reverse an array.](./javascript/arrayReverse/README.md)
 - [Insert and shift an array in middle at index.](./javascript/arrayInsertShift/README.md)
+- [Insert and shift an array in middle at index.](./javascript/arrayBinarySearch/README.md)
