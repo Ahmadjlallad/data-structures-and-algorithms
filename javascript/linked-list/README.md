@@ -1,4 +1,19 @@
-"use strict";
+# Singly Linked List
+
+A singly linked list is a type of linked list that is unidirectional, that is, it can be traversed in only one direction from head to the last node (tail).
+
+## Challenge
+
+need to create a singly linked list class that create a linked list and append to head if the list is empty, otherwise append to next node.
+
+## Approach & Efficiency
+
+using a class to create a linked list.
+Big O: O(n)
+
+## API
+
+```javascript
 /**
  * @class Node
  * Node a class used to create node in LinkedList class
@@ -37,5 +52,6 @@ class LinkedList {
     return this;
   }
 }
+```
 
-module.exports = LinkedList;
+<!-- Description of each method publicly available to your Linked List -->
