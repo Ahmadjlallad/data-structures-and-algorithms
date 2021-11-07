@@ -99,14 +99,14 @@ class LinkedList {
     string += "NULL";
     return string;
   }
-  insertBefore(beforeNodeValue, value) {
+  insertNode(value) {
     /**
-     * @method insertBefore(beforeNodeValue,value)
-     * use to insert a node before a node with the value of beforeNodeValue
-     * @param beforeNodeValue any
-     * @param value any
-     * @returns LinkedList
+     * @method insertNode(any)
+     * @param value
+     * @returns linked list
+     * @description insert a node to the list at the head
      */
+
     if (!beforeNodeValue || !value)
       throw new Error(`Invalid input ${beforeNodeValue && value}`);
     try {
@@ -130,19 +130,21 @@ class LinkedList {
       this.head = previousNode.head;
       this.tail = previousNode.tail;
       this.length++;
+
       return this;
-    } catch (e) {
-      console.log(e.message);
     }
+    let currentNode = this.head;
+    this.head = node;
+    node.next = currentNode;
   }
-  insertAfter(afterNode, value) {
+  includes(value) {
     /**
-     * @method insertAfter(afterNode,value)
-     * use to insert a node before a node with the value of afterNode
-     * @param afterNode any
-     * @param value any
-     * @returns LinkedList
+     * @method includes(any)
+     * @param value
+     * @returns boolean
+     * @description check if the value is in the list or not
      */
+
 
     if (!afterNode || !value)
       throw new Error(`Invalid input ${afterNode && value}`);
@@ -175,15 +177,17 @@ class LinkedList {
       return this;
     } catch (e) {
       console.error();
+
     }
+    return false;
   }
-  deleteNode(deletedValue) {
+  toString() {
     /**
-     * @method deleteNode(deletedValue)
-     * use to delete a node with the value of value
-     * @param deletedValue any
-     * @returns LinkedList
+     * @method toString()
+     * @returns string
+     * @description convert the list to string
      */
+
     try {
       if (!deletedValue)
         throw new Error("Invalid input deletedValue is " + deletedValue);
@@ -205,7 +209,10 @@ class LinkedList {
       return this;
     } catch (e) {
       console.error(e);
+
     }
+    string += "NULL";
+    return string;
   }
 }
 
