@@ -56,108 +56,52 @@ class LinkedList {
     currentNode.next = node;
     return this;
   }
-  insertBefore(beforeNodeValue, value) {
+  insertNode(value) {
     /**
-     * @method insertBefore(beforeNodeValue,value)
-     * use to insert a node before a node with the value of beforeNodeValue
-     * @param beforeNodeValue any
-     * @param value any
-     * @returns LinkedList
+     * @method insertNode(any)
+     * @param value
+     * @returns linked list
+     * @description insert a node to the list at the head
      */
-    if (!beforeNodeValue || !value)
-      throw new Error(`Invalid input ${beforeNodeValue && value}`);
-    try {
-      if (!this.head) return this;
-      let currentNode = this.head;
-      let previousNode = new LinkedList();
-
-      while (currentNode.value !== beforeNodeValue) {
-        previousNode.appendNode(currentNode.value);
-        currentNode = currentNode.next;
-        if (!currentNode) return this;
-      }
-
-      previousNode.appendNode(value);
-
-      while (currentNode) {
-        previousNode.appendNode(currentNode.value);
-        currentNode = currentNode.next;
-      }
-
-      this.head = previousNode.head;
+    let node = new Node(value);
+    if (!this.head) {
+      this.head = node;
       return this;
-    } catch (e) {
-      console.log(e.message);
     }
+    let currentNode = this.head;
+    this.head = node;
+    node.next = currentNode;
   }
-  insertAfter(afterNode, value) {
+  includes(value) {
     /**
-     * @method insertAfter(afterNode,value)
-     * use to insert a node before a node with the value of afterNode
-     * @param afterNode any
-     * @param value any
-     * @returns LinkedList
+     * @method includes(any)
+     * @param value
+     * @returns boolean
+     * @description check if the value is in the list or not
      */
-
-    if (!afterNode || !value)
-      throw new Error(`Invalid input ${afterNode && value}`);
-    try {
-      if (!this.head) return this;
-      let currentNode = this.head;
-      let previousNode = new LinkedList();
-
-      while (true) {
-        previousNode.appendNode(currentNode.value);
-        currentNode = currentNode.next;
-        if (currentNode?.value === afterNode) {
-          previousNode.appendNode(currentNode.value);
-          currentNode = currentNode.next;
-          break;
-        }
-        if (!currentNode) return this;
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
       }
-
-      previousNode.appendNode(value);
-
-      while (currentNode) {
-        previousNode.appendNode(currentNode.value);
-        currentNode = currentNode.next;
-      }
-
-      this.head = previousNode.head;
-      return this;
-    } catch (e) {
-      console.error();
+      currentNode = currentNode.next;
     }
+    return false;
   }
-  deleteNode(deletedValue) {
+  toString() {
     /**
-     * @method deleteNode(deletedValue)
-     * use to delete a node with the value of value
-     * @param deletedValue any
-     * @returns LinkedList
+     * @method toString()
+     * @returns string
+     * @description convert the list to string
      */
-    try {
-      if (!deletedValue)
-        throw new Error("Invalid input deletedValue is " + deletedValue);
-      if (!this.head) return this;
-      let currentNode = this.head;
-      let previousNode = new LinkedList();
-      console.log(currentNode);
-      while (currentNode.next) {
-        console.log(currentNode.value !== deletedValue);
-        console.log(currentNode.value);
-        if (currentNode.value !== deletedValue) {
-          previousNode.appendNode(currentNode.value);
-        }
-        currentNode = currentNode.next;
-      }
-
-      this.head = previousNode.head;
-      return this;
-    } catch (e) {
-      console.error(e);
+    let currentNode = this.head;
+    let string = "";
+    while (currentNode) {
+      string += `{ ${currentNode.value} } -> `;
+      currentNode = currentNode.next;
     }
+    string += "NULL";
+    return string;
   }
 }
 ```
@@ -178,31 +122,17 @@ const myLinkedList = new LinkedList();
   ```
 
 - insertNode method
-  - insertBefore
+
+  ```javascript
+  myLinkedList.insertNode(2); // output: { head: { value: 2, next: { value: 1, next: null } } }
+  ```
 
 ```javascript
-console.log(myLinkedList); // output: { head: next: { value: 1, next: null } }
-
-myLinkedList.insertBefore(1, 2); // output: { head: { value: 2, next: { value: 1, next: null } } }
+myLinkedList.includes(1); // output: true
 ```
 
-- - insertAfter
-
 ```javascript
-console.log(myLinkedList); // output: { head: { value: 2, next: null } }
-
-myLinkedList.insertAfter(2, 3); // output: { head: { value: 2, next: { value: 3, next: null } } }
-
-myLinkedList.insertAfter(3, 1); // output: { head: { value: 2, next: { value: 3, next: { value: 1, next: null } } } }
-```
-
-- Delete Node method
-
-```javascript
-console.log(myLinkedList);
-// output: { head: { value: 2, next: { value: 3, next: { value: 1, next: null } } } }
-myLinkedList.deleteNode(2);
-// output: { head: { value: 3, next: { value: 1, next: null } } }
+myLinkedList.toString(); // output: "{ 1 } -> { 2 } -> NULL"
 ```
 
 - [x] Top-level README “Table of Contents” is updated
