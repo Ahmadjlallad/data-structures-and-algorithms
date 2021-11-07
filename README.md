@@ -23,4 +23,4 @@ To run your tests
 - [Reverse an array.](./javascript/arrayReverse/README.md)
 - [Insert and shift an array in middle at index.](./javascript/arrayInsertShift/README.md)
 - [Array Binary Search.](./javascript/arrayBinarySearch/README.md)
-- [linked list.](./javascript/linkedList/README.md)
+- [linked list.](./javascript/linked-list/README.md)

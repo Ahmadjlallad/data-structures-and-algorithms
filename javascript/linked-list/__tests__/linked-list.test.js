@@ -1,8 +1,5 @@
-/* eslint-disable */
-// I don't Like eslint ok?! i like " " quotes heade single quotes
 "use strict";
 
-// Require our linked list implementation
 const LinkedList = require("../index");
 
 describe("Linked List", () => {
