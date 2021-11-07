@@ -56,6 +56,53 @@ class LinkedList {
     currentNode.next = node;
     return this;
   }
+  insertNode(value) {
+    /**
+     * @method insertNode(any)
+     * @param value
+     * @returns linked list
+     * @description insert a node to the list at the head
+     */
+    let node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+      return this;
+    }
+    let currentNode = this.head;
+    this.head = node;
+    node.next = currentNode;
+  }
+  includes(value) {
+    /**
+     * @method includes(any)
+     * @param value
+     * @returns boolean
+     * @description check if the value is in the list or not
+     */
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
+  toString() {
+    /**
+     * @method toString()
+     * @returns string
+     * @description convert the list to string
+     */
+    let currentNode = this.head;
+    let string = "";
+    while (currentNode) {
+      string += `{ ${currentNode.value} } -> `;
+      currentNode = currentNode.next;
+    }
+    string += "NULL";
+    return string;
+  }
   insertBefore(beforeNodeValue, value) {
     /**
      * @method insertBefore(beforeNodeValue,value)
@@ -169,41 +216,56 @@ class LinkedList {
 ```javascript
 const myLinkedList = new LinkedList();
 // output: { head: null }
+// new LinkedList { head: null, tail: null, length: 0 }
 ```
 
 - appendNode method
 
   ```javascript
-  myLinkedList.appendNode(1); // output: { head: { value: 1, next: null } }
+  myLinkedList.appendNode(1);
+  myLinkedList.appendNode(2);
+  myLinkedList.includes(1); // output: true
+  myLinkedList.toString(); // output: { 2 } -> { 1 } -> { 2 } -> NULL
+  /*new LinkedList {
+  head: Node { value: 1, next: Node { value: 2, next: null } },
+  tail: Node { value: 2, next: null },
+  length: 2
+  }
+  */
   ```
 
 - insertNode method
+
+  - insertNode at the head
+
+  ```javascript
+  myLinkedList.insertNode(2); // {"head":{"value":2,"next":{"value":1,"next":{"value":2,"next":null}}},"tail":{"value":2,"next":null},"length":3}
+  ```
+
   - insertBefore
 
-```javascript
-console.log(myLinkedList); // output: { head: next: { value: 1, next: null } }
+  ```javascript
+  console.log(myLinkedList); // output: { head: next: { value: 1, next: null },"tail":{"value":1,"next":null},"length":1 }
 
-myLinkedList.insertBefore(1, 2); // output: { head: { value: 2, next: { value: 1, next: null } } }
-```
+  myLinkedList.insertBefore(1, 2); // {"head":{"value":2,"next":{"value":1,"next":null}},"tail":{"value":1,"next":null},"length":2}
+  ```
 
-- - insertAfter
+  - insertAfter
 
-```javascript
-console.log(myLinkedList); // output: { head: { value: 2, next: null } }
+  ```javascript
+  console.log(myLinkedList); // output: {"head":{"value":1,"next":null},"tail":{"value":1,"next":null},"length":1}
 
-myLinkedList.insertAfter(2, 3); // output: { head: { value: 2, next: { value: 3, next: null } } }
+  myLinkedList.insertAfter(2, 3); // output: {"head":{"value":1,"next":{"value":2,"next":null}},"tail":{"value":2,"next":null},"length":2}
+  ```
 
-myLinkedList.insertAfter(3, 1); // output: { head: { value: 2, next: { value: 3, next: { value: 1, next: null } } } }
-```
+  - Delete Node method
 
-- Delete Node method
-
-```javascript
-console.log(myLinkedList);
-// output: { head: { value: 2, next: { value: 3, next: { value: 1, next: null } } } }
-myLinkedList.deleteNode(2);
-// output: { head: { value: 3, next: { value: 1, next: null } } }
-```
+  ```javascript
+  console.log(myLinkedList);
+  //{"head":{"value":2,"next":{"value":1,"next":null}},"tail":{"value":1,"next":null},"length":2}
+  myLinkedList.deleteNode(2);
+  //{"head":{"value":2,"next":null},"tail":{"value":2,"next":null},"length":1}
+  ```
 
 - [x] Top-level README “Table of Contents” is updated
 - [x] README for this challenge is complete

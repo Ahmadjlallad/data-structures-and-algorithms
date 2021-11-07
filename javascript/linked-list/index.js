@@ -22,19 +22,82 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
+  // appendNode(value) {
+  //   let node = new Node(value);
+  //   if (!this.head) {
+  //     this.head = node;
+  //     return this;
+  //   }
+  //   let currentNode = this.head;
+  //   while (currentNode.next) {
+  //     currentNode = currentNode.next;
+  //   }
+  //   currentNode.next = node;
+  //   this.length++;
+  //   return this;
+  // }
   appendNode(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  insertNode(value) {
+    /**
+     * @method insertNode(any)
+     * @param value
+     * @returns linked list
+     * @description insert a node to the list at the head
+     */
     let node = new Node(value);
     if (!this.head) {
       this.head = node;
       return this;
     }
     let currentNode = this.head;
-    while (currentNode.next) {
+    this.head = node;
+    node.next = currentNode;
+    this.length++;
+  }
+  includes(value) {
+    /**
+     * @method includes(any)
+     * @param value
+     * @returns boolean
+     * @description check if the value is in the list or not
+     */
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
       currentNode = currentNode.next;
     }
-    currentNode.next = node;
-    return this;
+    return false;
+  }
+  toString() {
+    /**
+     * @method toString()
+     * @returns string
+     * @description convert the list to string
+     */
+    let currentNode = this.head;
+    let string = "";
+    while (currentNode) {
+      string += `{ ${currentNode.value} } -> `;
+      currentNode = currentNode.next;
+    }
+    string += "NULL";
+    return string;
   }
   insertBefore(beforeNodeValue, value) {
     /**
@@ -65,6 +128,8 @@ class LinkedList {
       }
 
       this.head = previousNode.head;
+      this.tail = previousNode.tail;
+      this.length++;
       return this;
     } catch (e) {
       console.log(e.message);
@@ -87,13 +152,13 @@ class LinkedList {
       let previousNode = new LinkedList();
 
       while (true) {
-        previousNode.appendNode(currentNode.value);
-        currentNode = currentNode.next;
         if (currentNode?.value === afterNode) {
           previousNode.appendNode(currentNode.value);
           currentNode = currentNode.next;
           break;
         }
+        previousNode.appendNode(currentNode.value);
+        currentNode = currentNode.next;
         if (!currentNode) return this;
       }
 
@@ -105,6 +170,8 @@ class LinkedList {
       }
 
       this.head = previousNode.head;
+      this.tail = previousNode.tail;
+      this.length++;
       return this;
     } catch (e) {
       console.error();
@@ -123,17 +190,18 @@ class LinkedList {
       if (!this.head) return this;
       let currentNode = this.head;
       let previousNode = new LinkedList();
-      console.log(currentNode);
+      let counter = 0;
       while (currentNode.next) {
-        console.log(currentNode.value !== deletedValue);
-        console.log(currentNode.value);
         if (currentNode.value !== deletedValue) {
           previousNode.appendNode(currentNode.value);
         }
+        counter++;
         currentNode = currentNode.next;
       }
 
       this.head = previousNode.head;
+      this.tail = previousNode.tail;
+      this.length--;
       return this;
     } catch (e) {
       console.error(e);
