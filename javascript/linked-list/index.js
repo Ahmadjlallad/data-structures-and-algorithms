@@ -193,6 +193,24 @@ class LinkedList {
       console.error(e);
     }
   }
+  kthFromEnd(k) {
+    k += 1;
+    if (typeof k !== "number") return null;
+    if (k === 1) return this.tail.value;
+    if (k === this.length) return this.head.value;
+    if (k > this.length) return null;
+    if (k < 1) return null;
+    let currentNode = this.head;
+    let counter = 0;
+    while (counter < this.length - k) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode.value;
+  }
 }
-
+const testNext = new LinkedList();
+testNext.appendNode(1);
+console.log(testNext.kthFromEnd(0));
+console.log(testNext);
 module.exports = LinkedList;
