@@ -3,7 +3,7 @@
 "use strict";
 
 // Require our linked list implementation
-const LinkedList = require("../index");
+const { LinkedList } = require("../index");
 
 describe("Linked List", () => {
   it("Can successfully instantiate an empty linked list", () => {

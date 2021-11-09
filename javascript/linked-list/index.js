@@ -209,8 +209,32 @@ class LinkedList {
     return currentNode.value;
   }
 }
-const testNext = new LinkedList();
-testNext.appendNode(1);
-console.log(testNext.kthFromEnd(0));
-console.log(testNext);
-module.exports = LinkedList;
+
+/**
+ *
+ * @param {LinkedList} list1
+ * @param {LinkedList} list2
+ * @returns LinkedList
+ * @example
+ *   head -> [1] -> [3] -> [2] -> X head -> [5] -> [9] -> [4] -> X head -> [1] -> [5] -> [3] -> [9] -> [2] -> [4] -> X
+ */
+const zipLists = (list1, list2) => {
+  let counter = list2.length > list1.length ? list2.length : list1.length;
+  let current = list1.head;
+  let current2 = list2.head;
+  let newList = new LinkedList();
+
+  while (counter >= 1) {
+    if (current?.value) newList.appendNode(current.value);
+    if (current2?.value) newList.appendNode(current2.value);
+    current = current?.next;
+    current2 = current2?.next;
+    counter--;
+  }
+
+  return newList;
+};
+module.exports = {
+  LinkedList,
+  zipLists,
+};

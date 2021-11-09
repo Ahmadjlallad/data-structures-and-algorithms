@@ -25,6 +25,11 @@ Big O space: O(n)
 for the kThFromEnd
 ![kThFromEnd](./7kThFromEnd.png)
 
+---
+
+for the linkedListZip
+![kThFromEnd](./8.png)
+
 - [x] Top-level README “Table of Contents” is updated
 - [x] README for this challenge is complete
   - [x] Summary, Description, Approach & Efficiency, Solution
