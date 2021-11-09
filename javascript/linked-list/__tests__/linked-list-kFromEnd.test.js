@@ -1,4 +1,4 @@
-const LinkedList = require("../index");
+const { LinkedList } = require("../index");
 
 describe("kthFromEnd test", () => {
   it("Where k is greater than the length of the linked list", () => {
