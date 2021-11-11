@@ -24,3 +24,4 @@ To run your tests
 - [Insert and shift an array in middle at index.](./javascript/arrayInsertShift/README.md)
 - [Array Binary Search.](./javascript/arrayBinarySearch/README.md)
 - [linked list.](./javascript/linked-list/README.md)
+- [stack-and-queue](./javascript/stack-and-queue/README.md)
