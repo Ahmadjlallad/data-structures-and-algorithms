@@ -133,7 +133,7 @@ describe("Linked List", () => {
     testNext.appendNode(2);
     testNext.appendNode(4);
     testNext.appendNode(5);
-    testNext.insertAfter(4, 3);
+    testNext.insertAfterObt(4, 3);
     expect(testNext.head.next.next.next.value).toEqual(3);
   });
   it("should successfully insert a node after the last node of the linked list", () => {
@@ -142,7 +142,7 @@ describe("Linked List", () => {
     testNext.appendNode(2);
     testNext.appendNode(4);
     testNext.appendNode(5);
-    testNext.insertAfter(5, 3);
+    testNext.insertAfterObt(5, 3);
     let currentNode = testNext.head;
     while (currentNode.next) {
       currentNode = currentNode.next;
