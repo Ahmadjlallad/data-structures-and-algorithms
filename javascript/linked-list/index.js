@@ -250,6 +250,36 @@ class LinkedList {
     currentNode.next = newNode;
     this.length++;
   }
+  deleteNode(deletedValue) {
+    /**
+     * @method deleteNode(deletedValue)
+     * use to delete a node with the value of value
+     * @param deletedValue any
+     * @returns LinkedList
+     */
+    try {
+      if (!deletedValue)
+        throw new Error("Invalid input deletedValue is " + deletedValue);
+      if (!this.head) return this;
+      let currentNode = this.head;
+      let previousNode = new LinkedList();
+      let counter = 0;
+      while (currentNode.next) {
+        if (currentNode.value !== deletedValue) {
+          previousNode.appendNode(currentNode.value);
+        }
+        counter++;
+        currentNode = currentNode.next;
+      }
+
+      this.head = previousNode.head;
+      this.tail = previousNode.tail;
+      this.length--;
+      return this;
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
 
 module.exports = {

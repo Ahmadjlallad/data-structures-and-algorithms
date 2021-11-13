@@ -27,7 +27,7 @@ const zipListsOpt = (list1, list2) => {
   prev.next = current.next;
   current.next = prev;
   if (list1.length === list2.length) list1.tail = current.next;
-  return current;
+  return list1;
 };
 /**
  *
