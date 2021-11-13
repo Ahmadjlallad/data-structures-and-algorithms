@@ -1,4 +1,5 @@
-const { zipLists, LinkedList } = require("../index");
+const { LinkedList } = require("../index");
+const { zipLists } = require("../zipListsOpt");
 
 describe("kthFromEnd test", () => {
   it("should zip two list even size", () => {

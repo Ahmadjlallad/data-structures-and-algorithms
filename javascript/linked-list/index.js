@@ -26,6 +26,12 @@ class LinkedList {
     this.length = 0;
   }
   appendNode(value) {
+    /**
+     * when i create a linked list the head and tail are the same and point to the same heap address
+     * when i append a node to the linked list the tail points to the new node and the head points to the new node
+     * when second value is appended to the link list the tile will point the the next node in the head and the tile will point to the next node in the tail
+     *
+     */
     let newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
@@ -163,7 +169,7 @@ class LinkedList {
       console.error();
     }
   }
-  deleteNode(deletedValue) {
+  insertAfter(deletedValue) {
     /**
      * @method deleteNode(deletedValue)
      * use to delete a node with the value of value
@@ -208,33 +214,44 @@ class LinkedList {
     }
     return currentNode.value;
   }
+  insertBeforeObt(loc, value) {
+    if (!this.head) return this;
+    const newNode = new Node(value);
+    if (this.head.value === loc) {
+      newNode.next = this.head;
+      this.head = newNode;
+      return this;
+    }
+    let currentNode = this.head;
+    while (loc !== currentNode.next.value) {
+      currentNode = currentNode.next;
+      if (!currentNode.next)
+        throw new Error(`No value match the provided value ${loc}`);
+    }
+    newNode.next = currentNode.next;
+    currentNode.next = newNode;
+    this.length++;
+  }
+  insertAfterObt(loc, value) {
+    if (!this.head) return this;
+    const newNode = new Node(value);
+    if (this.tail.value === loc) {
+      this.tail.next = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    let currentNode = this.head;
+    while (loc !== currentNode.value) {
+      currentNode = currentNode.next;
+      if (!currentNode)
+        throw new Error(`No value match the provided value ${loc}`);
+    }
+    newNode.next = currentNode.next;
+    currentNode.next = newNode;
+    this.length++;
+  }
 }
 
-/**
- *
- * @param {LinkedList} list1
- * @param {LinkedList} list2
- * @returns LinkedList
- * @example
- *   head -> [1] -> [3] -> [2] -> X head -> [5] -> [9] -> [4] -> X head -> [1] -> [5] -> [3] -> [9] -> [2] -> [4] -> X
- */
-const zipLists = (list1, list2) => {
-  let counter = list2.length > list1.length ? list2.length : list1.length;
-  let current = list1.head;
-  let current2 = list2.head;
-  let newList = new LinkedList();
-
-  while (counter >= 1) {
-    if (current?.value) newList.appendNode(current.value);
-    if (current2?.value) newList.appendNode(current2.value);
-    current = current?.next;
-    current2 = current2?.next;
-    counter--;
-  }
-
-  return newList;
-};
 module.exports = {
   LinkedList,
-  zipLists,
 };
