@@ -26,7 +26,7 @@ stack and queues O(n) time and O(n) space.
 ## Whiteboard Process
 
 whiteboard solution:
-![](./assets/)
+![pseudo Queue](./assets/pseudoQueue.png)
 
 ## Approach & Efficiency
 
