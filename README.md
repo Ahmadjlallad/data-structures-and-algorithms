@@ -33,3 +33,4 @@ To run your tests
     - insertAfter
     - deleteNode
 - [stack-and-queue](./javascript/stack-and-queue/README.md)
+  - stack-queue-pseudo

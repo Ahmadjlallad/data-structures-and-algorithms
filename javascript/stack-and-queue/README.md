@@ -3,7 +3,7 @@
 stack algorithms are a set of algorithms that operate on a data structure called a stack.
 queue algorithms are a set of algorithms that operate on a data structure called a queue.
 
-## Challenge
+## Challenge 1
 
 Implement a stack and a queue using only JavaScript.
 with the following methods:
@@ -16,3 +16,20 @@ with the following methods:
 ## Approach & Efficiency
 
 stack and queues O(n) time and O(n) space.
+
+---
+
+## Challenge 2 pseudo queue
+
+- Implement a queue using only two stack instant.
+
+## Whiteboard Process
+
+whiteboard solution:
+![](./assets/)
+
+## Approach & Efficiency
+
+- The first stack is the main stack.
+- The second stack is a temporary stack.
+  stack and queues O(n) time and O(n) space.
