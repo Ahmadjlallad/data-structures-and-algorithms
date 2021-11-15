@@ -23,13 +23,24 @@ stack and queues O(n) time and O(n) space.
 
 - Implement a queue using only two stack instant.
 
+## Challenge 3 Animal Shelter
+
+- Implement Animal Shelter class that can enqueue, dequeue, and find the front of the queue.
+  - enqueue: add animal to the shelter
+  - dequeue: remove the oldest animal from the shelter
+
 ## Whiteboard Process
 
-whiteboard solution:
+whiteboard solution:pseudo Queue
 ![pseudo Queue](./assets/pseudoQueue.png)
+whiteboard solution:
+![Animal Shelter](./assets/12.png)
 
 ## Approach & Efficiency
 
 - The first stack is the main stack.
 - The second stack is a temporary stack.
   stack and queues O(n) time and O(n) space.
+- Animal Shelter
+  - enqueue: O(1)
+  - dequeue: O(n)
