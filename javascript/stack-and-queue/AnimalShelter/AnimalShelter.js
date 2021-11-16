@@ -8,6 +8,7 @@ class AnimalShelter {
   }
 
   enqueue(animal) {
+    if (animal !== "dog" && animal !== "cat") throw new Error("Invalid animal");
     const newNode = new Node(animal);
 
     if (this.isEmpty()) {
