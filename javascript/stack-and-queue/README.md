@@ -33,8 +33,10 @@ stack and queues O(n) time and O(n) space.
 
 whiteboard solution:pseudo Queue
 ![pseudo Queue](./assets/pseudoQueue.png)
-whiteboard solution:
+whiteboard solution: Animal Shelter
 ![Animal Shelter](./assets/12.png)
+whiteboard solution: validate Brackets
+![validateBrackets](./assets/13.png)
 
 ## Approach & Efficiency
 
@@ -44,3 +46,5 @@ whiteboard solution:
 - Animal Shelter
   - enqueue: O(1)
   - dequeue: O(n)
+- validate Brackets
+  - O(n) time and O(3) space.
