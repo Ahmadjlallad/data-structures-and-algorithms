@@ -34,3 +34,5 @@ To run your tests
     - deleteNode
 - [stack-and-queue](./javascript/stack-and-queue/README.md)
   - stack-queue-pseudo
+- [Binary Trees](./javascript/trees/README.md)
+  - stack-queue-pseudo
