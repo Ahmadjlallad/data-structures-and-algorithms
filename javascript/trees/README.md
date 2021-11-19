@@ -11,8 +11,9 @@ Node
 - Create a Binary Tree class
 
   - Define a method for each of the depth first traversals:
-    - pre order
-    - in order
+    - pre order traversal (root, left, right)
+    - in order traversal (left, root, right)
+    - post order traversal (left, right, root)
 
 - Binary Search Tree
   - Create a Binary Search Tree class
@@ -25,3 +26,9 @@ Node
     Returns: boolean indicating whether or not the value is in the tree at least once.
 
 ## Approach & Efficiency
+
+- pre order traversal O(n)
+- in order traversal O(n)
+- post order traversal O(n)
+- add in a binary search tree O(log n)
+- contains in a binary search tree O(log n)

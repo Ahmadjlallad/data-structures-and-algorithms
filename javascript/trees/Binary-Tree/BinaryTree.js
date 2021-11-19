@@ -7,7 +7,8 @@ class BinaryTree {
     this.root = root;
   }
 
-  PreOrder() {
+  preOrder() {
+    if (!this.root) return [];
     let arrayOfReadNodes = [];
 
     const _walk = (node) => {
@@ -27,7 +28,8 @@ class BinaryTree {
     return arrayOfReadNodes;
   }
 
-  PostOrder() {
+  postOrder() {
+    if (!this.root) return [];
     let arrayOfReadNodes = [];
 
     const _walk = (node) => {
@@ -47,7 +49,8 @@ class BinaryTree {
     return arrayOfReadNodes;
   }
 
-  InOrder() {
+  inOrder() {
+    if (!this.root) return [];
     let arrayOfReadNodes = [];
 
     const _walk = (node) => {
@@ -62,12 +65,9 @@ class BinaryTree {
         _walk(node.right);
       }
     };
-
     _walk(this.root);
     return arrayOfReadNodes;
   }
 }
 
 module.exports = BinaryTree;
-
-// new BinaryTree(new Node(value))
