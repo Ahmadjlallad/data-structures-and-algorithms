@@ -1,6 +1,6 @@
 const BinaryTree = require("../Binary-Tree/BinaryTree");
 const Node = require("../Node");
-
+const renderDotTree = require("../graphviz");
 class BinarySearchTree extends BinaryTree {
   constructor(value) {
     super(value);
@@ -72,23 +72,4 @@ class BinarySearchTree extends BinaryTree {
   }
 }
 
-const BT = new BinarySearchTree();
-const BTT = new BinarySearchTree();
-
-BT.root = new Node(
-  8,
-  new Node(3, new Node(1), new Node(6, new Node(4), new Node(7))),
-  new Node(10, null, new Node(14, new Node(13)))
-);
-BTT.addRecursive(10);
-BTT.addRecursive(5);
-BTT.addRecursive(15);
-console.log(BTT);
-// console.log(BT.contains(5));
-
 module.exports = BinarySearchTree;
-/*
-Pre-order:  8, 3, 1, 6, 4, 7, 10, 14, 13
-In-order:   1, 3, 4, 6, 7, 8, 13, 14, 10
-Post-order: 1, 4, 7, 6, 3, 13, 14, 10, 8
- */
