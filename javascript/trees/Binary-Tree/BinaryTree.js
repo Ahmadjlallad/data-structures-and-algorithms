@@ -52,7 +52,6 @@ class BinaryTree {
   inOrder() {
     if (!this.root) return [];
     let arrayOfReadNodes = [];
-
     const _walk = (node) => {
       // check left
       if (node.left) {
