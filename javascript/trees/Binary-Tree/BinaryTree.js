@@ -67,6 +67,16 @@ class BinaryTree {
     _walk(this.root);
     return arrayOfReadNodes;
   }
+  maximum() {
+    if (!this.root) return [];
+    const _max = (node) => {
+      if (!node) return -Infinity;
+      const max =
+        _max(node.right) > _max(node.left) ? _max(node.right) : _max(node.left);
+      return max > node.value ? max : node.value;
+    };
+    return _max(this.root);
+  }
 }
 
 module.exports = BinaryTree;
