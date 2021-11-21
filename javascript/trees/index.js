@@ -27,5 +27,11 @@ BTT.addRecursive(28);
 BTT.addRecursive(1);
 BTT.addRecursive(12);
 BTT.addRecursive(30);
-console.log(graphviz(BT.root));
-console.log(graphviz(BTT.root));
+const tree = new BinaryTree();
+tree.root = new Node(
+  2,
+  new Node(7, new Node(2), new Node(6, new Node(5), new Node(11))),
+  new Node(5, null, new Node(9, new Node(4)))
+);
+console.log(BTT.maximum());
+// graphviz(tree.root, "./tree.dot");
