@@ -32,24 +32,31 @@ module.exports = function renderDotTree(
   path: null | string = null
 ): string {
   let nullCount = 0;
-  let dot = "digraph G {\n";
-  const _render = (node: Node) => {
+  let dot = "strict digraph {\n";
+  dot += "node [fontsize=14, height=.1 fontname=Courier];\n";
+  dot += "edge [fontsize=14];\n";
+  dot += `  ${node.value}0[label=${node.value}];\n`;
+  const _render = (node: Node, c: number) => {
     if (node.left) {
-      dot += `   ${node.value} -> ${node.left.value}[label="l" color = green]\n`;
-      _render(node.left);
+      dot += `  ${node.value}${c} -> ${node.left.value}${c + 1};\n  ${
+        node.left.value
+      }${c + 1}[label=${node.left.value}];\n`;
+      _render(node.left, c + 1);
     } else {
-      dot += `   null${nullCount}[shape=point]\n   ${node.value} -> null${nullCount}[color = blue]\n`;
+      dot += `  null${nullCount}[shape=point];\n  ${node.value}${c} -> null${nullCount}[color = blue];\n`;
       nullCount++;
     }
     if (node.right) {
-      dot += `   ${node.value} -> ${node.right.value}[label="r" color = green]\n`;
-      _render(node.right);
+      dot += `  ${node.value}${c} -> ${node.right.value}${c + 1};\n${
+        node.right.value
+      }${c + 1}[label=${node.right.value}];\n`;
+      _render(node.right, c + 1);
     } else {
-      dot += `   null${nullCount}[shape=point]\n   ${node.value} -> null${nullCount}[color = blue]\n`;
+      dot += `  null${nullCount}[shape=point];\n  ${node.value}${c} -> null${nullCount}[color = blue];\n`;
       nullCount++;
     }
   };
-  _render(node);
+  _render(node, 0);
   dot += "}";
   if (path) {
     const fs = require("fs");

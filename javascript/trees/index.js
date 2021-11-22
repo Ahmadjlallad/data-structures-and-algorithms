@@ -34,4 +34,6 @@ tree.root = new Node(
   new Node(5, null, new Node(9, new Node(4)))
 );
 console.log(BTT.maximum());
-// graphviz(tree.root, "./tree.dot");
+graphviz(tree.root, "./tree.dot");
+// graphviz(BTT.root, "./tree1.dot");
+// graphviz(BT.root, "./tree2.dot");
