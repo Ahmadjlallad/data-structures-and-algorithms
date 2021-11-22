@@ -1,7 +1,5 @@
 "use strict";
 
-const Node = require("../Node");
-
 class BinaryTree {
   constructor(root = null) {
     this.root = root;
@@ -76,6 +74,18 @@ class BinaryTree {
       return max > node.value ? max : node.value;
     };
     return _max(this.root);
+  }
+  BreadthFirst() {
+    if (!this.root) return [];
+    let queue = [this.root];
+    let arrayOfReadNodes = [];
+    while (queue.length > 0) {
+      let node = queue.shift();
+      arrayOfReadNodes.push(node.value);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return arrayOfReadNodes;
   }
 }
 

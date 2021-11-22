@@ -29,6 +29,8 @@ Node
 
 - Maximum number ![number](https://i.ibb.co/5Lgv4fz/16.png)
 
+- Breadth First ![Breadth First](https://i.ibb.co/FVdTxCG/17.png)
+
 ## Approach & Efficiency
 
 - pre order traversal O(n)
@@ -37,6 +39,7 @@ Node
 - add in a binary search tree O(log n)
 - contains in a binary search tree O(log n)
 - Maximum number O(n)
+- Breadth First O(n)
 
 ---
 
