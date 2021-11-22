@@ -33,7 +33,8 @@ tree.root = new Node(
   new Node(7, new Node(2), new Node(6, new Node(5), new Node(11))),
   new Node(5, null, new Node(9, new Node(4)))
 );
-console.log(BTT.maximum());
+BT.BreadthFirst();
+console.log(BT.BreadthFirst());
 graphviz(tree.root, "./tree.dot");
 // graphviz(BTT.root, "./tree1.dot");
 // graphviz(BT.root, "./tree2.dot");
