@@ -31,6 +31,8 @@ Node
 
 - Breadth First ![Breadth First](https://i.ibb.co/FVdTxCG/17.png)
 
+- tree Fizz Buzz ![treeFizzBuzz](https://i.ibb.co/jwh7q0N/fizzzzzzzzzzzzzzzzzz.png)
+
 ## Approach & Efficiency
 
 - pre order traversal O(n)
@@ -40,6 +42,7 @@ Node
 - contains in a binary search tree O(log n)
 - Maximum number O(n)
 - Breadth First O(n)
+- treeFizzBuzz O(n)
 
 ---
 
