@@ -34,7 +34,17 @@ tree.root = new Node(
   new Node(5, null, new Node(9, new Node(4)))
 );
 BT.BreadthFirst();
-console.log(BT.BreadthFirst());
-graphviz(tree.root, "./tree.dot");
+// console.log(BT.BreadthFirst());
+// graphviz(tree.root, "./tree.dot");
 // graphviz(BTT.root, "./tree1.dot");
 // graphviz(BT.root, "./tree2.dot");
+
+const SumOfOddNumbers = (tree) => {
+  const _getOdd = (node) => {
+    if (node === null) return 0;
+    if (node.value % 2 !== 0)
+      return node.value + _getOdd(node.left) + _getOdd(node.right);
+    return _getOdd(node.left) + _getOdd(node.right);
+  };
+  return _getOdd(tree.root);
+};
