@@ -25,26 +25,26 @@ function validateBrackets(string) {
   else return false;
 }
 const Stack = require("../stack/Stack");
-const vallation = (str) => {
-  const BracketStack = new Stack();
-  for (const strings of str) {
-    if (strings === "{" || strings === "[" || strings === "(") {
-      BracketStack.push(strings);
-    }
-    if (strings === "}" || strings === ")" || strings === "]") {
-      const first = BracketStack.pop();
-      if (first === "{")
-        if (strings !== "}") throw new Error("messing a bracket on " + strings);
-      if (first === "[")
-        if (strings !== "]") throw new Error("messing a bracket on " + strings);
+// const vallation = (str) => {
+//   const BracketStack = new Stack();
+//   for (const strings of str) {
+//     if (strings === "{" || strings === "[" || strings === "(") {
+//       BracketStack.push(strings);
+//     }
+//     if (strings === "}" || strings === ")" || strings === "]") {
+//       const first = BracketStack.pop();
+//       if (first === "{")
+//         if (strings !== "}") throw new Error("messing a bracket on " + strings);
+//       if (first === "[")
+//         if (strings !== "]") throw new Error("messing a bracket on " + strings);
 
-      if (first === "(")
-        if (strings !== ")") throw new Error("messing a bracket on " + strings);
-    }
-  }
+//       if (first === "(")
+//         if (strings !== ")") throw new Error("messing a bracket on " + strings);
+//     }
+//   }
 
-  return true;
-};
-vallation("{)}");
+//   return true;
+// };
+// vallation("{)}");
 
 module.exports = validateBrackets;
