@@ -1,3 +1,4 @@
+const sort = require("../Insertion-Sort/insertionSort");
 describe("Insertion-Sort", () => {
   it("sort an Array", () => {
     let array = [5, 12, 7, 5, 5, 7];
