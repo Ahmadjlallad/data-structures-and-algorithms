@@ -14,6 +14,7 @@ class Stack {
       newNode.next = this.top;
       this.top = newNode;
     }
+    this.length++;
   }
 
   pop() {
@@ -24,6 +25,7 @@ class Stack {
     const temp = this.top;
     this.top = this.top.next;
     temp.next = null;
+    this.length--;
     return temp.value;
   }
 
