@@ -1,0 +1,159 @@
+"use strict";
+
+let array = [20, 18, 12, 8, 5, -2];
+
+// function sort(arr) {
+//   let n = arr.length;
+//   let temp;
+//   for (let i = 0; i < n; i++) {
+//     let min = i;
+//     for (let j = i; j < n; j++) {
+//       if (arr[j] < arr[min]) {
+//         min = j;
+//       }
+//     }
+//     temp = arr[min];
+//     arr[min] = arr[i];
+//     arr[i] = temp;
+//   }
+// }
+
+// function Mergesort(arr) {
+//   let n = arr?.length;
+
+//   if (n > 1) {
+//     let mid = n / 2;
+//     let left = arr.slice(0, mid);
+//     let right = arr.slice(mid, n);
+//     // sort the left side
+//     Mergesort(left);
+//     // sort the right side
+//     Mergesort(right);
+//     // merge the sorted left and right sides together
+//     Merge(left, right, arr);
+//   }
+// }
+// function Merge(left, right, arr) {
+//   let i = 0;
+//   let j = 0;
+//   let k = 0;
+
+//   while (i < left.length && j < right.length) {
+//     if (left[i] <= right[j]) {
+//       arr[k] = left[i];
+//       i = i + 1;
+//     } else {
+//       arr[k] = right[j];
+//       j = j + 1;
+//     }
+//     k = k + 1;
+//   }
+//   if (i === left.length) {
+//     // set remaining entries in arr to remaining values in right
+//     arr = [arr[k], ...right];
+//   } else {
+//     //set remaining entries in arr to remaining values in left
+//     arr = [arr[k], ...left];
+//   }
+// }
+
+/**
+ * [ 4, 8, 23, 42, 16, 15 ]
+ * [ 42, 16, 15 ]
+ * [ 4, 8, 23, ]
+ *
+ * [ 4 ] [ 8 ] [ 23 ]
+ *
+ * [ 42, 16, 15 ]
+ *
+ * Merge[ 42,] [ 15 ] [ 16 ]
+ *
+ *
+ */
+//}
+
+
+//[4,8,23,42,16,15]
+//[4,8,23,42,16,15]
+//[4,8,15,42,16,23]
+//[4,8,15,16,42,23]
+//[4,8,15,16,23,42]
+
+// module.exports = sort;
+
+
+
+
+
+// const mergesort = (arr) => {
+//   const arrayLength = arr.length;
+//   if (arrayLength > 1) {
+//     const mid = arrayLength / 2;
+//     const left = arr.slice(0, mid);
+//     const right = arr.slice(mid, arrayLength);
+//     // sort the left side
+//     mergesort(left);
+//     // sort the right side
+//     mergesort(right);
+//     // merge the sorted left and right sides together
+//     merge(left, right, arr);
+//   }
+// };
+// const merge = (left, right, arr) => {
+//   // left [ 18 ]
+//   // righ [ 12 ]
+//   // arr [ 18, 12 ]
+//   // arr [ 12, 18 ]
+//   // - - -
+//   // arr [ 12, 18 ]
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (left > right) {
+//       const temp = left;
+//       arr[i] = right;
+//       arr[i + 1] = temp;
+//     }
+//   }
+
+// };
+// mergesort(array)
+
+
+
+const mergeSort = array => {
+  //Check if array can be split
+  if(array.length < 2) return array;
+  //Get Middle index
+  const middle = Math.floor(array.length / 2);
+  //Split Array In Two Sides
+  const leftSide = array.slice(0, middle);
+  const rightSide = array.slice(middle, array.length);
+  //Use recusion to continue splitting
+  console.log('split:', leftSide, rightSide);
+  return merge(mergeSort(leftSide), mergeSort(rightSide));
+}
+
+const merge = (left, right) => {
+  //Create New Array
+  const result = [];
+  //Check if left array and right array is empty
+  while(left.length && right.length) {
+    //Find lower value
+    if(left[0] <= right[0]) {
+      //Add left value
+      result.push(left.shift());
+    } else {
+      //Add right value
+      result.push(right.shift());
+    }
+  }
+  //Merge left array
+  while(left.length) result.push(left.shift());
+  //Merge right array
+  while(right.length) result.push(right.shift());
+  //return result array
+  console.log('result:', result);
+  return result;
+}
+
+console.log(mergeSort([5, 3, 7, 10, 4, 1, 5]));
