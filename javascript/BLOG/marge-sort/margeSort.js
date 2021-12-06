@@ -41,6 +41,4 @@ const mergeSort = (arr) => {
   }
   return arr;
 };
-const arr = [20, 18, 12, 8, 5, -2];
-console.log(margeSort(arr));
-console.log(arr);
+module.exports = mergeSort;
