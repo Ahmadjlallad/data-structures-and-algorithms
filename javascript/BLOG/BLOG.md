@@ -25,3 +25,18 @@
     This algorithm requires additional space proportional to the input size.
   - ### whiteboard:
     ![27](https://i.ibb.co/K24sQnn/17.png)
+
+- ## Quick sort
+
+  Quicksort is an efficient in-place sorting algorithm, which usually performs about two to three times faster than merge sort and heapsort when implemented well. Quicksort is a comparison sort, meaning that it can sort items of any type for which a less-than relation is defined. In efficient implementations, it is usually not a stable sort.
+
+  Quicksort, on average, makes O(n.log(n)) comparisons to sort n items. In the worst-case, it makes O(n2) comparisons, though this behavior is very rare.
+
+  - ### Big O:
+
+  - Time: O(n log(n))
+    This algorithm is a divide and conquer algorithm. It is a recursive algorithm.
+  - Space: O(n)
+    This algorithm requires additional space proportional to the input size.
+  - ### whiteboard:
+    ![28](https://i.ibb.co/j9t5vRC/28.png)
