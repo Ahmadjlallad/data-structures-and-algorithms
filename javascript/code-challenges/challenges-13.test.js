@@ -388,6 +388,7 @@ xdescribe("Testing challenge 10", () => {
 xdescribe("Testing challenge 11", () => {
   test("It should return the ith character of the ith string", () => {
     const words = ["apple", "banana", "cantaloupe"];
+    0;
 
     expect(characterByIndex(words)).toStrictEqual(["a", "a", "n"]);
     expect(characterByIndex(["abc", "def", "ghi"])).toStrictEqual([

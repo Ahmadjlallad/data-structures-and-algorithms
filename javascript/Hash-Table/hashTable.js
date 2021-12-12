@@ -1,6 +1,7 @@
 class HashTable {
   constructor(size = 10) {
     this.table = new Array(size);
+    this.size = size;
   }
   add(key, value) {
     let index = this.hash(key);
