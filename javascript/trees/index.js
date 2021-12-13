@@ -34,9 +34,22 @@ tree.root = new Node(
   new Node(5, null, new Node(9, new Node(4)))
 );
 BT.BreadthFirst();
+const BT1 = new BinaryTree();
+
+BT1.root = new Node(
+  8,
+  new Node(3, new Node(1), new Node(6, new Node(4), new Node(7))),
+  new Node(10, null, new Node(14, new Node(13)))
+);
+const BT2 = new BinaryTree();
+BT2.root = new Node(
+  8,
+  new Node(1, new Node(2), new Node(6, new Node(4), new Node(3))),
+  new Node(7, null, new Node(1, new Node(13)))
+);
 // console.log(BT.BreadthFirst());
-// graphviz(tree.root, "./tree.dot");
-// graphviz(BTT.root, "./tree1.dot");
+graphviz(BT1.root, "./tree1.dot");
+graphviz(BT2.root, "./tree2.dot");
 // graphviz(BT.root, "./tree2.dot");
 
 const SumOfOddNumbers = (tree) => {
