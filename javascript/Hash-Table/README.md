@@ -39,6 +39,16 @@
 
 ![hashmap-repeated-word](https://i.ibb.co/gz9N5td/31.png)
 
+## Approach & Efficiency hashmap-repeated-word
+
+- approach is to use a hash function to map the input data to an index in the array.
+- efficiency is to use a hash function that is fast and efficient.
+- Big O notation is O(n \* m) n length of the fist hash table m length of the second hash table
+
+## whiteboard hashmap-left-join
+
+![hashmap-repeated-word](https://i.ibb.co/t40kFXg/33.png)
+
 ## API
 
 - HashTable
